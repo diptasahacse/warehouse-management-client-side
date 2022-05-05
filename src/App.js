@@ -12,6 +12,8 @@ import ManageInventory from './Pages/ManageInventory/ManageInventory';
 import MyItems from './Pages/MyItems/MyItems';
 import AddItem from './Pages/AddItem/AddItem';
 import { ToastContainer } from 'react-toastify';
+import ManageItem from './Pages/ManageItem/ManageItem';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/myitems' element={<MyItems></MyItems>}></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>
+        <Route path='/manageitems' element={<ManageItem></ManageItem>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         
         <Route path='/manageinventory' element={<ManageInventory></ManageInventory>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

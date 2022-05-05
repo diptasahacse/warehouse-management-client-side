@@ -1,9 +1,15 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 
 const Header = () => {
+    const [user, loading, error] = useAuthState(auth); 
+    // user?.emailVerified
+    
     return (
         <Navbar bg="light" expand="lg" className='bg-white border-bottom border-primary'>
             <Container>
@@ -14,21 +20,25 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <CustomLink className='nav-link' to='/'>Home</CustomLink>
-                        <CustomLink className='nav-link' to='/manageitems'>Manage Items</CustomLink>
-                        <CustomLink className='nav-link' to='/additem'>Add Item</CustomLink>
-                        <CustomLink className='nav-link' to='/myitems'>My Item</CustomLink>
+                        {
+                            user?.emailVerified && <><CustomLink className='nav-link' to='/manageitems'>Manage Items</CustomLink>
+                            <CustomLink className='nav-link' to='/additem'>Add Item</CustomLink>
+                            <CustomLink className='nav-link' to='/myitems'>My Item</CustomLink></>
+                        }
                         <CustomLink className='nav-link' to='/blogs'>Blogs</CustomLink>
-                        <CustomLink className='nav-link' to='/register'>Register</CustomLink>
-                        <CustomLink className='nav-link' to='/login'>Login</CustomLink>
+                        
+                        {user?.emailVerified || <><CustomLink className='nav-link' to='/register'>Register</CustomLink>
+                        <CustomLink className='nav-link' to='/login'>Login</CustomLink></> 
+                        }
 
 
-                        <NavDropdown title="Dipta" id="basic-nav-dropdown">
+                        {user?.emailVerified && <NavDropdown title={user.displayName} id="basic-nav-dropdown">
                             <Link to='/userprofile' className='dropdown-item'>Profile</Link>
                             <NavDropdown.Divider />
                             <div className='dropdown-item'>
-                                <button className='btn btn-sm btn-danger'>Logout</button>
+                                <button onClick={()=>signOut(auth)} className='btn btn-sm btn-danger'>Logout</button>
                             </div>
-                        </NavDropdown>
+                        </NavDropdown>}
                         
                     </Nav>
                 </Navbar.Collapse>
