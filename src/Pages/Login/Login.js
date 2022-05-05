@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
@@ -12,6 +13,9 @@ const Login = () => {
         error1,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendEmailVerification, sending, error2] = useSendEmailVerification(auth);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const emailRef = useRef('');
     const passwordRef = useRef('');
     let errorMessage;
@@ -22,6 +26,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password)
         if (!user?.user?.emailVerified) {
             await sendEmailVerification();
+            errorMessage = 'Please verify your email address before login';
 
         }
 
@@ -35,11 +40,8 @@ const Login = () => {
     if (!user?.user) {
         errorMessage = '';
     }
-    else if (!user?.user?.emailVerified) {
-        errorMessage = 'Please verify your email address before login';
-    }
-    else {
-        // navigate(from, { replace: true });
+    if (user?.user?.emailVerified) {
+        navigate(from, { replace: true });
     }
     if (error1) {
         errorMessage = error1.message
