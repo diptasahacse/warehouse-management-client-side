@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './Pages/Shared/Header/Header';
+import Footer from './Pages/Shared/Footer/Footer';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import NotFound from './Pages/NotFound/NotFound';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
+import ResetPassword from './Pages/ResetPassword/ResetPassword';
+import ManageInventory from './Pages/ManageInventory/ManageInventory';
+import MyItems from './Pages/MyItems/MyItems';
+import AddItem from './Pages/AddItem/AddItem';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Shared Header */}
+      <Header></Header>
+
+
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/myitems' element={<MyItems></MyItems>}></Route>
+        <Route path='/additem' element={<AddItem></AddItem>}></Route>
+        
+        <Route path='/manageinventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
+      </Routes>
+
+      {/* Shared Footer */}
+      <Footer></Footer>
+
     </div>
   );
 }
