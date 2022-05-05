@@ -7,7 +7,9 @@ const Header = () => {
     return (
         <Navbar bg="light" expand="lg" className='bg-white border-bottom border-primary'>
             <Container>
-                <Link className='navbar-brand' to='/'>Grocery Management</Link>
+                <Link className='navbar-brand' to='/'>
+                    <h4>Grocery Management</h4>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
@@ -16,6 +18,8 @@ const Header = () => {
                         <CustomLink className='nav-link' to='/additem'>Add Item</CustomLink>
                         <CustomLink className='nav-link' to='/myitems'>My Item</CustomLink>
                         <CustomLink className='nav-link' to='/blogs'>Blogs</CustomLink>
+                        <CustomLink className='nav-link' to='/register'>Register</CustomLink>
+                        <CustomLink className='nav-link' to='/login'>Login</CustomLink>
 
 
                         <NavDropdown title="Dipta" id="basic-nav-dropdown">

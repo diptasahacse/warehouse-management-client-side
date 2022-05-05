@@ -11,6 +11,7 @@ import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import ManageInventory from './Pages/ManageInventory/ManageInventory';
 import MyItems from './Pages/MyItems/MyItems';
 import AddItem from './Pages/AddItem/AddItem';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
 
       {/* Shared Footer */}
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
 
     </div>
   );
