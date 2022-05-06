@@ -24,26 +24,24 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password)
-        
+
 
 
 
 
     }
-    
+
     if (loading) {
         return <Loading></Loading>
     }
+
     if (!user?.user) {
         errorMessage = '';
     }
-    if (!user?.user?.emailVerified) {
+    else if (!user?.user?.emailVerified) {
         errorMessage = 'Please verify your email address before login';
-        // const sendVerifyEmail = async() =>{
-        //     await sendEmailVerification();
-        // }
-        // sendVerifyEmail()
     }
+
     if (user?.user?.emailVerified) {
         navigate(from, { replace: true });
     }

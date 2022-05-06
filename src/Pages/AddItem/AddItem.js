@@ -42,7 +42,10 @@ const AddItem = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                if(result?.acknowledged){
+                    event.target.reset()
+
+                }
             })
 
         // console.log(productDetails)
