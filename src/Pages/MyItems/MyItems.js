@@ -16,51 +16,31 @@ const MyItems = () => {
     return (
         <Container className='py-3'>
             <h3>My Products</h3>
-            <div>
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>Number</th>
-                            <th>Product</th>
-                            <th>Email</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            myProducts.map((product, index) => <MyItemTableRow index={index} product={product} key={product._id}></MyItemTableRow>)
-                        }
-                        {/* <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>3</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-                        </tr> */}
-
-                    </tbody>
-                </Table>
-            </div>
+            {
+                myProducts.length > 0?
+                <div>
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Product</th>
+                                <th>Email</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                myProducts.map((product, index) => <MyItemTableRow index={index} product={product} key={product._id}></MyItemTableRow>)
+                            }
+                        </tbody>
+                    </Table>
+                </div>
+                :
+                <p className='text-center'>Data Not found</p>
+            }
         </Container>
     );
 };

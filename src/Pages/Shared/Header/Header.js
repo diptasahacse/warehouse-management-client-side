@@ -21,7 +21,7 @@ const Header = () => {
                     <Nav className="ms-auto">
                         <CustomLink className='nav-link' to='/'>Home</CustomLink>
                         {
-                            user?.emailVerified && <><CustomLink className='nav-link' to='/manageitems'>Manage Items</CustomLink>
+                            user?.emailVerified && <><CustomLink className='nav-link' to='/manageinventory'>Manage Inventory</CustomLink>
                             <CustomLink className='nav-link' to='/additem'>Add Item</CustomLink>
                             <CustomLink className='nav-link' to='/myitems'>My Item</CustomLink></>
                         }

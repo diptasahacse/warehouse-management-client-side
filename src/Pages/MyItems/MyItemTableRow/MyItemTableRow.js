@@ -13,7 +13,7 @@ const MyItemTableRow = ({ product,index }) => {
             <td>{productPrice}</td>
             <td>{Number(productPrice)*Number(productQuantity)}</td>
             <td className='text-center'>
-                <button className='btn btn-sm btn-danger'>Delete</button>
+                <button style={{padding:'2px 5px'}} className='btn btn-sm btn-danger'>Delete</button>
             </td>
         </tr>
     );
