@@ -9,12 +9,12 @@ const ManageInventory = () => {
             .then(res => res.json())
             .then(data => setAllProducts(data))
     }, [])
-    console.log(allProducts)
+    
     return (
         <Container className='py-3'>
             <h3>All Products</h3>
             <div>
-                <Table striped bordered hover>
+                <Table responsive="lg" striped bordered hover>
                     <thead>
                         <tr>
                             <th>#</th>

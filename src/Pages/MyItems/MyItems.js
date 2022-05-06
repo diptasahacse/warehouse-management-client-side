@@ -19,7 +19,7 @@ const MyItems = () => {
             {
                 myProducts.length > 0?
                 <div>
-                    <Table striped bordered hover size="sm">
+                    <Table responsive="lg" striped bordered hover size="sm">
                         <thead>
                             <tr>
                                 <th>#</th>
