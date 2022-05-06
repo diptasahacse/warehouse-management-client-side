@@ -1,14 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
+import useProducts from '../../hooks/useProducts';
 import ManageInventoryTableRow from './ManageInventoryTableRow/ManageInventoryTableRow';
 
 const ManageInventory = () => {
-    const [allProducts, setAllProducts] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:5000/products`)
-            .then(res => res.json())
-            .then(data => setAllProducts(data))
-    }, [])
+    const [allProducts, setAllProducts] = useProducts();
     const deleteProductHandler =(id) =>{
         // console.log(id)
         const deleteStatus = window.confirm('Are you sure want to delete this item..?')
