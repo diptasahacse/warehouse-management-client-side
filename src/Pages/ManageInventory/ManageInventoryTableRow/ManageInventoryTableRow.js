@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 
-const ManageInventoryTableRow = ({ product, index }) => {
+const ManageInventoryTableRow = ({ product, index, deleteProductHandler }) => {
     const { _id, email, productName, productPrice, productQuantity, supplierName } = product;
 
     // console.log(allProducts)
     const [currentQuantity, setCurrentQuantity] = useState(Number(productQuantity))
 
     const onStockUpdateHandler = (id) => {
+        const current = currentQuantity;
 
-        setCurrentQuantity(currentQuantity + 1);
+        setCurrentQuantity(current + 1);
         console.log(currentQuantity)
 
     }
+    // console.log(currentQuantity)
 
     return (
         <tr>
@@ -24,7 +26,7 @@ const ManageInventoryTableRow = ({ product, index }) => {
             <td>{Number(productPrice) * Number(productQuantity)}</td>
             <td className='d-flex justify-content-between'>
                 <button onClick={() => onStockUpdateHandler(_id)} style={{ padding: '2px 5px' }} className='btn btn-sm btn-warning m-1'>Update</button>
-                <button style={{ padding: '2px 5px' }} className='btn btn-sm btn-danger m-1'>Delete</button>
+                <button onClick={()=>deleteProductHandler(_id)} style={{ padding: '2px 5px' }} className='btn btn-sm btn-danger m-1'>Delete</button>
 
             </td>
         </tr>
