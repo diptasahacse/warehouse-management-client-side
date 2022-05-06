@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import MyItemTableRow from './MyItemTableRow/MyItemTableRow';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
@@ -19,15 +20,21 @@ const MyItems = () => {
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
+                            <th>Number</th>
                             <th>Product</th>
                             <th>Email</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Total Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        {
+                            myProducts.map((product, index) => <MyItemTableRow index={index} product={product} key={product._id}></MyItemTableRow>)
+                        }
+                        {/* <tr>
+                            <td>1</td>
                             <td>1</td>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -36,6 +43,7 @@ const MyItems = () => {
                         </tr>
                         <tr>
                             <td>2</td>
+                            <td>2</td>
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td>@fat</td>
@@ -43,11 +51,12 @@ const MyItems = () => {
                         </tr>
                         <tr>
                             <td>3</td>
+                            <td>3</td>
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td>@fat</td>
                             <td>@fat</td>
-                        </tr>
+                        </tr> */}
 
                     </tbody>
                 </Table>
