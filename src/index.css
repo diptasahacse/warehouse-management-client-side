@@ -13,4 +13,11 @@ code {
 }
 
 
-/* Nav */
+/* Inventory Product Card */
+.inventory-product-card {
+  transition: all .3s ease-in-out;
+}
+
+.inventory-product-card:hover {
+  box-shadow: 0 0 10px 3px hsla(0, 0%, 7%, .2);
+}
