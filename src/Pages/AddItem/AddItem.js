@@ -31,7 +31,21 @@ const AddItem = () => {
             supplierName
         }
 
-        console.log(productDetails)
+        fetch(`http://localhost:5000/products`, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(productDetails)
+
+
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
+
+        // console.log(productDetails)
 
     }
     const addItemCheckHandler = (event) => {
