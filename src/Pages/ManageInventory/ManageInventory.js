@@ -29,6 +29,7 @@ const ManageInventory = () => {
         }
 
     }
+    
     return (
         <Container className='py-3'>
             <h3>All Products</h3>
