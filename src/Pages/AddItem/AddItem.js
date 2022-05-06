@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const AddItem = () => {
     return (
-        <div>
-            
-        </div>
+        <Container>
+            <h2>Add Item</h2>
+        </Container>
     );
 };
 
