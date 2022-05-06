@@ -22,7 +22,7 @@ const MyItems = () => {
                     <Table striped bordered hover size="sm">
                         <thead>
                             <tr>
-                                <th>Number</th>
+                                <th>#</th>
                                 <th>Product</th>
                                 <th>Email</th>
                                 <th>Quantity</th>
