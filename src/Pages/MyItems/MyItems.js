@@ -49,7 +49,7 @@ const MyItems = () => {
                                     <th>Product Image</th>
                                     <th>Supplier Name</th>
                                     <th>Quantity</th>
-                                    <th>Price</th>
+                                    <th>Price/kg</th>
                                     <th>Total Price</th>
                                     <th>Action</th>
                                 </tr>

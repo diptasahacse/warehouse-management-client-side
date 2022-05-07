@@ -167,31 +167,25 @@ const ProductInventoryDetails = () => {
                         </Col>
                         <Col>
                             <div className='d-flex justify-content-between align-items-center'>
-                                <h3>${product?.productPrice}</h3>
+                                <h5>${product?.productPrice} <span style={{ fontSize: "13px", color: "#86BA09" }}>/kg</span></h5>
+
+                                <div className='d-flex align-items-center'>
+                                    <h5 className='m-0'>Total:</h5>
+                                    <p className='ms-2 m-0 fw-bold'> ${Number(product?.productPrice) * Number(product?.productQuantity)}</p>
+                                </div>
+                            </div>
+                            <div className='d-flex justify-content-between align-items-center mt-2'>
+                                <h6>{product?.supplierName}</h6>
                                 {
                                     product?.productQuantity > 0 ? <div className='d-inline py-1 px-2' style={{ backgroundColor: '#e5f8ed', color: "#00b853", borderRadius: "5px" }}>Available</div> : <div className='d-inline py-1 px-2' style={{ backgroundColor: 'rgb(255 5 5 / 47%)', color: "rgb(189 13 13)", borderRadius: "5px" }}>Out of Stock</div>
                                 }
-
                             </div>
+                            <p style={{ fontSize: "14px" }} className='mt-2 text-muted fw-light'>Id: {product?._id}</p>
+                            <p className=' text-muted fw-light'>{product?.productDes}</p>
 
-                            <h6>{product?.supplierName}</h6>
-
-
-                            <p className='mt-2'>Id: {product?._id}</p>
-                            <p>{product?.productDes}</p>
-
-                            <div>
+                            <div className='mb-4'>
                                 <div className='d-flex align-items-center  h-100'>
                                     <div className='d-flex align-items-center'>
-                                        {/* <div className={`${product?.productQuantity == 0 ? 'invisible' : 'visible'}`}>
-                                            <div onClick={onDeliverHandler} role="button" className='quantity-button rounded-circle'>
-                                                <span>
-                                                    <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
-                                                </span>
-                                            </div>
-
-                                        </div> */}
-
                                         <button onClick={onDeliverHandler} disabled={product?.productQuantity == 0 ? true : false} className='btn btn-danger btn-sm'>
                                             <span>Delivered</span>
                                             <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
@@ -249,12 +243,7 @@ const ProductInventoryDetails = () => {
 
 
 
-                            <div className='my-3 d-flex align-items-center'>
-                                <h3>Total Price:</h3>
-                                <h5 className='ms-2'> ${Number(product?.productPrice) * Number(product?.productQuantity)}
-                                    <span style={{ color: "rgb(192 193 195)" }} className='ms-2'>(${product?.productPrice} x {product?.productQuantity})</span>
-                                </h5>
-                            </div>
+
 
                         </Col>
                     </Row>
