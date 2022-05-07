@@ -14,7 +14,7 @@ const Header = () => {
         <Navbar bg="light" expand="lg" className='bg-white border-bottom border-primary'>
             <Container>
                 <Link className='navbar-brand' to='/'>
-                    <h4>Grocery Management</h4>
+                    <h4>Fruit Store House</h4>
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

@@ -183,12 +183,21 @@ const ProductInventoryDetails = () => {
                             <div>
                                 <div className='d-flex align-items-center  h-100'>
                                     <div className='d-flex align-items-center'>
+                                        {/* <div className={`${product?.productQuantity == 0 ? 'invisible' : 'visible'}`}>
+                                            <div onClick={onDeliverHandler} role="button" className='quantity-button rounded-circle'>
+                                                <span>
+                                                    <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
+                                                </span>
+                                            </div>
 
-                                        <div onClick={onDeliverHandler} role="button" className={`${product?.productQuantity == 0 ? 'invisible' : 'visible'} quantity-button rounded-circle`}>
-                                            <span>
-                                                <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
-                                            </span>
-                                        </div>
+                                        </div> */}
+
+                                        <button onClick={onDeliverHandler} disabled={product?.productQuantity == 0 ? true : false} className='btn btn-danger btn-sm'>
+                                            <span>Delivered</span>
+                                            <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
+                                        </button>
+
+
                                         <p style={{ margin: "0 15px" }}>{product?.productQuantity}</p>
                                         <div onClick={onQuantityIncreaseHandler} role="button" className=' quantity-button rounded-circle'>
                                             <span>
@@ -208,7 +217,7 @@ const ProductInventoryDetails = () => {
                                                     <Form.Control required ref={reduceQuantityRef} type="number" placeholder="Enter Quantity" />
 
                                                 </Form.Group>
-                                                <Button disabled={product?.productQuantity == 0 ? true : false} className='ms-2' variant="primary" size='sm' type="submit">
+                                                <Button disabled={product?.productQuantity == 0 ? true : false} className='ms-2' variant="danger" size='sm' type="submit">
                                                     Reduce
                                                 </Button>
                                             </Form>
