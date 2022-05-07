@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import afterLogo from '../../../images/logos/afterlogo.png'
 import InventoryItemCard from './InventoryItemCard/InventoryItemCard';
@@ -18,6 +19,9 @@ const InventoryItems = () => {
                         allProducts.slice(0, 6).map(product => <InventoryItemCard key={product._id} product={product}></InventoryItemCard>)
                     }
                 </Row>
+                <div className='text-center'>
+                    <Link to='/manageinventory' className='btn btn-success my-3 btn-sm'>Manage Inventories</Link>
+                </div>
 
             </div>
 

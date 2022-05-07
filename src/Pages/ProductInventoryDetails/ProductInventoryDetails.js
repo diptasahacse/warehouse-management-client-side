@@ -175,10 +175,11 @@ const ProductInventoryDetails = () => {
                                 </div>
                             </div>
                             <div className='d-flex justify-content-between align-items-center mt-2'>
-                                <h6>{product?.supplierName}</h6>
+
                                 {
                                     product?.productQuantity > 0 ? <div className='d-inline py-1 px-2' style={{ backgroundColor: '#e5f8ed', color: "#00b853", borderRadius: "5px" }}>Available</div> : <div className='d-inline py-1 px-2' style={{ backgroundColor: 'rgb(255 5 5 / 47%)', color: "rgb(189 13 13)", borderRadius: "5px" }}>Out of Stock</div>
                                 }
+                                <h6 className='m-0'>{product?.supplierName}</h6>
                             </div>
                             <p style={{ fontSize: "14px" }} className='mt-2 text-muted fw-light'>Id: {product?._id}</p>
                             <p className=' text-muted fw-light'>{product?.productDes}</p>

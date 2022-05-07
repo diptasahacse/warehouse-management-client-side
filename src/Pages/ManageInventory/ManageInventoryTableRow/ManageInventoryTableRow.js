@@ -28,7 +28,7 @@ const ManageInventoryTableRow = ({ product, index, deleteProductHandler }) => {
             <td>{productPrice}</td>
             <td>{Number(productPrice) * Number(productQuantity)}</td>
             <td >
-                <button onClick={() => manageProductHandler(_id)} style={{ padding: '2px 5px' }} className='btn btn-sm btn-info m-1'>Manage</button>
+                <button onClick={() => manageProductHandler(_id)} style={{ padding: '2px 5px' }} className='btn btn-sm btn-success m-1'>Manage</button>
                 <button onClick={() => deleteProductHandler(_id)} style={{ padding: '2px 5px' }} className='btn btn-sm btn-danger m-1'>Delete</button>
 
             </td>
