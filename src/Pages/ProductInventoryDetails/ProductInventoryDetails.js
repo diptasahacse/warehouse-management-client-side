@@ -6,7 +6,7 @@ const ProductInventoryDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const quantityRef = useRef(0);
-    const currentQuantity = Number(product.productQuantity);
+    let currentQuantity = Number(product.productQuantity);
     const [isQuantityUpdate, setIsQuantityUpdate] = useState(0)
 
     useEffect(() => {
@@ -20,6 +20,31 @@ const ProductInventoryDetails = () => {
 
 
     const onDeliverHandler = () => {
+        currentQuantity -= 1;
+        
+        const productUpdatedData = {
+            email: product?.email,
+            productDes: product?.productDes,
+            productImageLink: product?.productImageLink,
+            productName: product?.productName,
+            productPrice: product?.productPrice,
+            productQuantity: currentQuantity.toString(),
+            supplierName: product?.supplierName
+        }
+
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: "PUT",
+            headers: { 'content-type': "application/json" },
+            body: JSON.stringify(productUpdatedData)
+
+
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.acknowledged) {
+                    setIsQuantityUpdate(isQuantityUpdate + 1);
+                }
+            })
 
 
     }
