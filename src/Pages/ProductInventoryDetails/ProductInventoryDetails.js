@@ -116,46 +116,8 @@ const ProductInventoryDetails = () => {
                     <h4 className='mb-4' style={{ color: "#86BA09" }}>{product?.productName}</h4>
                     <Row xs={1} md={2} >
                         <Col>
-                            <div>
-
-                                <div className='d-flex justify-content-center align-items-center'>
-                                    <img className='w-100 img-fluid' src={product?.productImageLink} alt="" />
-
-                                </div>
-
-
-                                {/* <div>
-<Table striped bordered hover>
-<thead>
-<tr>
-    <th>ID</th>
-    <td>{product?._id}</td>
-</tr>
-<tr>
-    <th>Name</th>
-    <td>{product?.productName}</td>
-</tr>
-<tr>
-    <th>Description</th>
-    <td>{product?.productDes}</td>
-</tr>
-<tr>
-    <th>Price</th>
-    <td>{product?.productPrice}</td>
-</tr>
-<tr>
-    <th>Quantity</th>
-    <td>{product?.productQuantity}</td>
-</tr>
-<tr>
-    <th>Supplier</th>
-    <td>{product?.supplierName}</td>
-</tr>
-
-</thead>
-
-</Table>
-</div> */}
+                            <div className='d-flex justify-content-center overflow-hidden align-items-center'>
+                                <img className='w-100 img-fluid product-details-image' src={product?.productImageLink} alt="" />
 
                             </div>
 
@@ -215,18 +177,10 @@ const ProductInventoryDetails = () => {
 
                             <div className='my-3 d-flex align-items-center'>
                                 <h3>Total Price:</h3>
-                                <h5  className='ms-2'> ${Number(product?.productPrice) * Number(product?.productQuantity)} 
+                                <h5 className='ms-2'> ${Number(product?.productPrice) * Number(product?.productQuantity)}
                                     <span style={{ color: "rgb(192 193 195)" }} className='ms-2'>(${product?.productPrice} x {product?.productQuantity})</span>
                                 </h5>
                             </div>
-
-                            {/* <div className='border mt-4 p-2 rounded'>
-                                <h5>Deliver the Product</h5>
-                                <button className='btn mt-3 btn-sm btn-danger'>Delivered</button>
-
-                            </div> */}
-
-
 
                         </Col>
                     </Row>
