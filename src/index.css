@@ -21,3 +21,14 @@ code {
 .inventory-product-card:hover {
   box-shadow: 0 0 10px 3px hsla(0, 0%, 7%, .2);
 }
+/* Quantity button */
+.quantity-button{
+background-color: #edeef5;
+color: #202435;
+padding: 7px;
+}
+.quantity-button:hover{
+background-color: #86BA09;
+color: #edeef5;
+
+}
