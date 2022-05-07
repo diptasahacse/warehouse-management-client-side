@@ -36,7 +36,7 @@ const InventoryItemCard = ({ product }) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className='bg-transparent border-0 text-end'>
-                    <button onClick={()=>stockUpdateHandleListener(_id)} className='btn btn-success btn-sm'>Stock update</button>
+                    <button onClick={()=>stockUpdateHandleListener(_id)} className='btn btn-success btn-sm'>Manage</button>
                 </Card.Footer>
             </Card>
         </Col>
