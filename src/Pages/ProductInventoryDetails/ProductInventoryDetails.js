@@ -113,7 +113,7 @@ const ProductInventoryDetails = () => {
         const inputQuantity = Number(reduceQuantityRef.current.value);
         // console.log(currentQuantity, inputQuantity)
         if (currentQuantity >= inputQuantity) {
-            let totalQuantity =  currentQuantity - inputQuantity;
+            let totalQuantity = currentQuantity - inputQuantity;
             const productUpdatedData = {
                 email: product?.email,
                 productDes: product?.productDes,
@@ -145,7 +145,7 @@ const ProductInventoryDetails = () => {
         else {
             event.target.reset();
             console.log('Quantity is not available')
-            
+
 
         }
 
@@ -168,11 +168,15 @@ const ProductInventoryDetails = () => {
                         <Col>
                             <div className='d-flex justify-content-between align-items-center'>
                                 <h3>${product?.productPrice}</h3>
-                                <h6>{product?.supplierName}</h6>
+                                {
+                                    product?.productQuantity > 0 ? <div className='d-inline py-1 px-2' style={{ backgroundColor: '#e5f8ed', color: "#00b853", borderRadius: "5px" }}>Available</div> : <div className='d-inline py-1 px-2' style={{ backgroundColor: 'rgb(255 5 5 / 47%)', color: "rgb(189 13 13)", borderRadius: "5px" }}>Out of Stock</div>
+                                }
+
                             </div>
-                            {
-                               product?.productQuantity > 0 ? <div className='d-inline py-1 px-2' style={{ backgroundColor: '#e5f8ed', color: "#00b853", borderRadius: "5px" }}>Available</div> : <div className='d-inline py-1 px-2' style={{ backgroundColor: 'rgb(255 5 5 / 47%)', color: "rgb(189 13 13)", borderRadius: "5px" }}>Out of Stock</div>
-                            }
+
+                            <h6>{product?.supplierName}</h6>
+
+
                             <p className='mt-2'>Id: {product?._id}</p>
                             <p>{product?.productDes}</p>
 
@@ -180,7 +184,7 @@ const ProductInventoryDetails = () => {
                                 <div className='d-flex align-items-center  h-100'>
                                     <div className='d-flex align-items-center'>
 
-                                        <div onClick={onDeliverHandler} role="button" className=' quantity-button rounded-circle'>
+                                        <div onClick={onDeliverHandler} role="button" className={`${product?.productQuantity == 0 ? 'invisible' : 'visible'} quantity-button rounded-circle`}>
                                             <span>
                                                 <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
                                             </span>
@@ -204,7 +208,7 @@ const ProductInventoryDetails = () => {
                                                     <Form.Control required ref={reduceQuantityRef} type="number" placeholder="Enter Quantity" />
 
                                                 </Form.Group>
-                                                <Button className='ms-2' variant="primary" size='sm' type="submit">
+                                                <Button disabled={product?.productQuantity == 0 ? true : false} className='ms-2' variant="primary" size='sm' type="submit">
                                                     Reduce
                                                 </Button>
                                             </Form>

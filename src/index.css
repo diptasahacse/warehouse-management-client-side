@@ -37,6 +37,8 @@ code {
 
 .product-details-image {
   transition: all .3s ease-in-out;
+  border-radius: 40px;
+
   
 
 }
@@ -44,5 +46,6 @@ code {
 .product-details-image:hover {
   transform: scale(1.2);
   cursor: pointer;
+  
 
 }
