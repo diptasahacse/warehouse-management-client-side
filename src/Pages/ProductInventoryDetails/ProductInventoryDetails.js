@@ -1,17 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Col, Container, Form, Row, Table } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 const ProductInventoryDetails = () => {
     const { id } = useParams();
-    const [product, setProduct] = useState({})
+    const [product, setProduct] = useState({});
+    const quantityRef = useRef(0);
+    const currentQuantity = Number(product.productQuantity)
+
+
+
+
+
+
     useEffect(() => {
         fetch(`http://localhost:5000/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
 
     }, [id])
-    console.log(product)
+
+    // console.log(product)
+
+
+    const onDeliverHandler = () => {
+
+
+    }
+    const reStockHandler = event => {
+        event.preventDefault();
+        const inputQuantity = Number(quantityRef.current.value);
+        const totalQuantity = inputQuantity + currentQuantity;
+        const productUpdatedData = {
+            email: product?.email,
+            productDes: product?.productDes,
+            productImageLink: product?.productImageLink,
+            productName: product?.productName,
+            productPrice: product?.productPrice,
+            productQuantity: totalQuantity.toString(),
+            supplierName: product?.supplierName
+        }
+
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: "PUT",
+            headers: { 'content-type': "application/json" },
+            body: JSON.stringify(productUpdatedData)
+
+
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result)
+        })
+    }
+
 
     return (
         <Container className='py-3'>
@@ -69,17 +111,17 @@ const ProductInventoryDetails = () => {
 
                     <div className='border mt-4 p-2 rounded'>
                         <h5>Deliver the Product</h5>
-                        <button className='btn mt-3 btn-sm btn-danger'>Delivered</button>
+                        <button onClick={onDeliverHandler} className='btn mt-3 btn-sm btn-danger'>Delivered</button>
 
                     </div>
 
                     <div className='border mt-4 p-2 rounded'>
                         <h5>Restock the Product</h5>
                         <div className='mt-3'>
-                            <Form>
+                            <Form onSubmit={reStockHandler}>
                                 <Form.Group className="mb-3" controlId="formBasicQuantity">
                                     <Form.Label>Quantity</Form.Label>
-                                    <Form.Control type="number" placeholder="Enter Quantity" />
+                                    <Form.Control required ref={quantityRef} type="number" placeholder="Enter Quantity" />
 
                                 </Form.Group>
                                 <Button variant="primary" size='sm' type="submit">
