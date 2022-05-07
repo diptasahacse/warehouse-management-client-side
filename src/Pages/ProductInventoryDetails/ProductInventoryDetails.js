@@ -6,19 +6,15 @@ const ProductInventoryDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const quantityRef = useRef(0);
-    const currentQuantity = Number(product.productQuantity)
-
-
-
-
-
+    const currentQuantity = Number(product.productQuantity);
+    const [isQuantityUpdate, setIsQuantityUpdate] = useState(0)
 
     useEffect(() => {
         fetch(`http://localhost:5000/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
 
-    }, [id])
+    }, [isQuantityUpdate])
 
     // console.log(product)
 
@@ -30,7 +26,7 @@ const ProductInventoryDetails = () => {
     const reStockHandler = event => {
         event.preventDefault();
         const inputQuantity = Number(quantityRef.current.value);
-        const totalQuantity = inputQuantity + currentQuantity;
+        let totalQuantity = inputQuantity + currentQuantity;
         const productUpdatedData = {
             email: product?.email,
             productDes: product?.productDes,
@@ -48,10 +44,14 @@ const ProductInventoryDetails = () => {
 
 
         })
-        .then(res => res.json())
-        .then(result => {
-            console.log(result)
-        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.acknowledged) {
+                    setIsQuantityUpdate(isQuantityUpdate + 1);
+                    event.target.reset();
+
+                }
+            })
     }
 
 
