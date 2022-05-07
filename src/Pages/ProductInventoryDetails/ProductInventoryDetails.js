@@ -7,6 +7,7 @@ const ProductInventoryDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const quantityRef = useRef(0);
+    const reduceQuantityRef = useRef(0);
     let currentQuantity = Number(product.productQuantity);
     const [isQuantityUpdate, setIsQuantityUpdate] = useState(0)
 
@@ -107,6 +108,48 @@ const ProductInventoryDetails = () => {
             })
 
     }
+    const reduceStockHandler = (event) => {
+        event.preventDefault();
+        const inputQuantity = Number(reduceQuantityRef.current.value);
+        // console.log(currentQuantity, inputQuantity)
+        if (currentQuantity >= inputQuantity) {
+            let totalQuantity =  currentQuantity - inputQuantity;
+            const productUpdatedData = {
+                email: product?.email,
+                productDes: product?.productDes,
+                productImageLink: product?.productImageLink,
+                productName: product?.productName,
+                productPrice: product?.productPrice,
+                productQuantity: totalQuantity.toString(),
+                supplierName: product?.supplierName
+            }
+
+            fetch(`http://localhost:5000/products/${id}`, {
+                method: "PUT",
+                headers: { 'content-type': "application/json" },
+                body: JSON.stringify(productUpdatedData)
+
+
+            })
+                .then(res => res.json())
+                .then(result => {
+                    if (result.acknowledged) {
+                        setIsQuantityUpdate(isQuantityUpdate + 1);
+                        event.target.reset();
+
+                    }
+                })
+
+
+        }
+        else {
+            event.target.reset();
+            console.log('Quantity is not available')
+            
+
+        }
+
+    }
 
 
     return (
@@ -127,30 +170,48 @@ const ProductInventoryDetails = () => {
                                 <h3>${product?.productPrice}</h3>
                                 <h6>{product?.supplierName}</h6>
                             </div>
-                            <div className='d-inline py-1 px-2' style={{ backgroundColor: '#e5f8ed', color: "#00b853", borderRadius: "5px" }}>
-                                Available
-
-                            </div>
+                            {
+                               product?.productQuantity > 0 ? <div className='d-inline py-1 px-2' style={{ backgroundColor: '#e5f8ed', color: "#00b853", borderRadius: "5px" }}>Available</div> : <div className='d-inline py-1 px-2' style={{ backgroundColor: 'rgb(255 5 5 / 47%)', color: "rgb(189 13 13)", borderRadius: "5px" }}>Out of Stock</div>
+                            }
                             <p className='mt-2'>Id: {product?._id}</p>
                             <p>{product?.productDes}</p>
-                            <Row xs={1} lg={2}>
-                                <Col>
-                                    <div className='d-flex align-items-center justify-content-center h-100'>
-                                        <div className='d-flex align-items-center'>
 
-                                            <div onClick={onDeliverHandler} role="button" className=' quantity-button rounded-circle'>
-                                                <span>
-                                                    <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
-                                                </span>
-                                            </div>
-                                            <p style={{ margin: "0 15px" }}>{product?.productQuantity}</p>
-                                            <div onClick={onQuantityIncreaseHandler} role="button" className=' quantity-button rounded-circle'>
-                                                <span>
-                                                    <PlusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
-                                                </span>
-                                            </div>
+                            <div>
+                                <div className='d-flex align-items-center  h-100'>
+                                    <div className='d-flex align-items-center'>
+
+                                        <div onClick={onDeliverHandler} role="button" className=' quantity-button rounded-circle'>
+                                            <span>
+                                                <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
+                                            </span>
+                                        </div>
+                                        <p style={{ margin: "0 15px" }}>{product?.productQuantity}</p>
+                                        <div onClick={onQuantityIncreaseHandler} role="button" className=' quantity-button rounded-circle'>
+                                            <span>
+                                                <PlusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
+                                            </span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <Row xs={1} lg={2}>
+                                <Col>
+                                    <div className='border mt-2 p-2 rounded'>
+                                        <h5>Reduce the Product</h5>
+                                        <div className='mt-3'>
+                                            <Form className='d-flex align-items-center' onSubmit={reduceStockHandler}>
+                                                <Form.Group controlId="formBasicQuantity">
+                                                    <Form.Control required ref={reduceQuantityRef} type="number" placeholder="Enter Quantity" />
+
+                                                </Form.Group>
+                                                <Button className='ms-2' variant="primary" size='sm' type="submit">
+                                                    Reduce
+                                                </Button>
+                                            </Form>
+                                        </div>
+
+                                    </div>
+
 
                                 </Col>
                                 <Col>
