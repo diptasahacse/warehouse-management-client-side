@@ -17,6 +17,7 @@ import RequiredAuth from './Pages/Shared/RequiredAuth/RequiredAuth';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import ProductInventoryDetails from './Pages/ProductInventoryDetails/ProductInventoryDetails';
 import BlogDetails from './Pages/Blogs/BlogDetails/BlogDetails';
+import About from './Pages/About/About';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           </RequiredAuth>
         }></Route>
 
+        <Route path='/about' element={<About></About>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/blogs/:id' element={<BlogDetails></BlogDetails>}></Route>
 
@@ -65,7 +67,6 @@ function App() {
 
       {/* Shared Footer */}
       <Footer></Footer>
-      <ToastContainer></ToastContainer>
 
     </div>
   );

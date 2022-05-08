@@ -7,7 +7,8 @@ import Loading from '../Shared/Loading/Loading';
 import 'react-toastify/dist/ReactToastify.css';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [
@@ -42,7 +43,7 @@ const Register = () => {
     }
 
     if (user) {
-        infoMessage = 'A Verify link is sent your email address. please verify it.'
+        toast('A Verify link is sent your email address. please verify it.');
     }
     console.log(user)
     return (
@@ -90,8 +91,10 @@ const Register = () => {
                     </div>
                 </div>
             </Container>
+            <ToastContainer />
             <Container style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }} className='my-4 p-4'>
                 <SocialLogin></SocialLogin>
+
 
             </Container>
         </div>

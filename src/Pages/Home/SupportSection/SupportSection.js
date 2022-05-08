@@ -12,7 +12,7 @@ const SupportSection = () => {
                         </span>
                         <div className='ms-3'>
                             <h5 className='m-0'>8 800 555-55</h5>
-                            <span className='text-muted fw-light'>Working 8:00 - 22:00</span>
+                            <span className='text-muted fw-light'>Something went wrong..? Call us</span>
                         </div>
                     </div>
 
@@ -23,7 +23,7 @@ const SupportSection = () => {
                             <div className="col-12 col-md-6">
                                 <div className='text-center '>
                                     <h5 className='m-0'>Download App on Mobile</h5>
-                                    <span className='text-muted fw-light'>15% discount on your first purchase</span>
+                                    <span className='text-muted fw-light'>Make life easy to use our app</span>
                                 </div>
 
                             </div>

@@ -26,6 +26,7 @@ const Header = () => {
                                 <CustomLink className='nav-link' to='/additem'>Add Item</CustomLink>
                                 <CustomLink className='nav-link' to='/myitems'>My Item</CustomLink></>
                         }
+                        <CustomLink className='nav-link' to='/about'>About</CustomLink>
                         <CustomLink className='nav-link' to='/blogs'>Blogs</CustomLink>
 
                         {user?.emailVerified || <><CustomLink className='nav-link' to='/register'>Register</CustomLink>
