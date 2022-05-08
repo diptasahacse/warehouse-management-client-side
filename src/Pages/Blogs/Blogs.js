@@ -15,7 +15,7 @@ const Blogs = () => {
             <Container className='my-4 p-5' style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }}>
                 <h3>Blogs</h3>
                 <div>
-                    <Row xs={1} sm={2} md={3} lg={4}>
+                    <Row className='g-3 m-0' xs={1} sm={2} md={3} lg={4}>
                         {
                             allBlogs.map(blog => <BlogCard key={blog._id} blog={blog}></BlogCard>)
                         }
