@@ -12,7 +12,7 @@ const ProductInventoryDetails = () => {
     const [isQuantityUpdate, setIsQuantityUpdate] = useState(0)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://agile-waters-08057.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
 
@@ -34,7 +34,7 @@ const ProductInventoryDetails = () => {
             supplierName: product?.supplierName
         }
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://agile-waters-08057.herokuapp.com/products/${id}`, {
             method: "PUT",
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(productUpdatedData)
@@ -64,7 +64,7 @@ const ProductInventoryDetails = () => {
             supplierName: product?.supplierName
         }
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://agile-waters-08057.herokuapp.com/products/${id}`, {
             method: "PUT",
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(productUpdatedData)
@@ -93,7 +93,7 @@ const ProductInventoryDetails = () => {
             supplierName: product?.supplierName
         }
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://agile-waters-08057.herokuapp.com/products/${id}`, {
             method: "PUT",
             headers: { 'content-type': "application/json" },
             body: JSON.stringify(productUpdatedData)
@@ -124,7 +124,7 @@ const ProductInventoryDetails = () => {
                 supplierName: product?.supplierName
             }
 
-            fetch(`http://localhost:5000/products/${id}`, {
+            fetch(`https://agile-waters-08057.herokuapp.com/products/${id}`, {
                 method: "PUT",
                 headers: { 'content-type': "application/json" },
                 body: JSON.stringify(productUpdatedData)

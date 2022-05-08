@@ -15,7 +15,7 @@ const MyItems = () => {
         const deleteStatus = window.confirm('Are you sure want to delete this item..?')
         if (deleteStatus) {
             // console.log('Have to delete')
-            fetch(`http://localhost:5000/products/${id}`, {
+            fetch(`https://agile-waters-08057.herokuapp.com/products/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

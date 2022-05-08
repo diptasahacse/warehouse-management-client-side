@@ -31,7 +31,7 @@ const AddItem = () => {
             supplierName
         }
 
-        fetch(`http://localhost:5000/products`, {
+        fetch(`https://agile-waters-08057.herokuapp.com/products`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
