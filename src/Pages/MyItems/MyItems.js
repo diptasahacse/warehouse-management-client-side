@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import useMyProducts from '../../hooks/useMyProducts';
 import MyItemTableRow from './MyItemTableRow/MyItemTableRow';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
-    const [myProducts, setMyProducts] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:5000/products?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setMyProducts(data))
-    }, [])
+    const [myProducts, setMyProducts] = useMyProducts(user?.email);
+    
 
     const deleteProductHandler =(id) =>{
         // console.log(id)

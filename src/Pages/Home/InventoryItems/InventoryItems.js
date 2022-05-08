@@ -9,7 +9,7 @@ const InventoryItems = () => {
     const [allProducts, setAllProducts] = useProducts();
     return (
         <Container className='py-3'>
-            <SectionTitle title="Inventory Items"></SectionTitle>
+            <SectionTitle color='black' title="Inventory Items"></SectionTitle>
             <div className='py-3'>
                 <Row xs={1} md={3} className="g-4">
                     {
