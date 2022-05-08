@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import 'react-toastify/dist/ReactToastify.css';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { Link } from 'react-router-dom';
 
 
 const Register = () => {
@@ -50,7 +51,11 @@ const Register = () => {
         <div className="overflow-hidden" style={{ backgroundColor: "#F7F8FD" }}>
             <Container style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }} className='my-4 p-4'>
                 <div>
-                    <h3 className='mb-3'>SignUp</h3>
+                    <div className='mb-3 d-flex justify-content-between align-items-center'>
+                        <h3 className='m-0'>Register</h3>
+                        <Link style={{ textDecoration: 'none' }} to='/login'>Already have account..?</Link>
+
+                    </div>
                     <div>
                         <Form onSubmit={signUpOnSubmitHandler}>
                             <Form.Group className="mb-3" controlId="formBasicName">

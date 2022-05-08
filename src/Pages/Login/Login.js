@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
@@ -13,7 +13,6 @@ const Login = () => {
         loading,
         error1,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendEmailVerification, sending, error2] = useSendEmailVerification(auth);
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -49,15 +48,16 @@ const Login = () => {
     if (error1) {
         errorMessage = error1.message
     }
-    if (error2) {
-        errorMessage = error2.message
-    }
     console.log(errorMessage)
     return (
         <div className="overflow-hidden" style={{ backgroundColor: "#F7F8FD" }}>
             <Container style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }} className='my-4 p-4'>
                 <div>
-                    <h3 className='mb-3'>Login</h3>
+                    <div className='mb-3 d-flex justify-content-between align-items-center'>
+                        <h3 className='m-0'>Login</h3>
+                        <Link style={{ textDecoration: 'none' }} to='/register'>New here.?</Link>
+
+                    </div>
                     <div>
                         <Form onSubmit={loginOnSubmitHandler}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -70,13 +70,14 @@ const Login = () => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
                             </Form.Group>
-                            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Check me out" />
-                            </Form.Group> */}
+
                             {
                                 errorMessage ? <p className='text-danger'>{errorMessage}</p> : ''
                             }
-                            <input type="submit" className='primary-custom-button' value="Signin" />
+                            <div className='d-flex justify-content-between'>
+                                <input type="submit" className='primary-custom-button' value="Signin" />
+                                <Link style={{ textDecoration: 'none' }} to='/resetpassword'>Forgot password..?</Link>
+                            </div>
 
                         </Form>
                     </div>
