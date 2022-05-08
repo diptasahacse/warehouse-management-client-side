@@ -28,11 +28,13 @@ const ManageInventory = () => {
     }
 
     return (
-        <div style={{ 'backgroundColor': "#F7F8FD" }}>
-            <Container className='py-3'>
-                <h3>All Products</h3>
-                <div className='text-center my-3'>
-                    <Link className='primary-custom-button' to='/additem'>Add new item</Link>
+        <div style={{ 'backgroundColor': "#F7F8FD" }} className="overflow-hidden">
+            <Container className='my-4 p-5' style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }}>
+                <div className='d-flex align-items-center justify-content-between'>
+                    <h3>All Products</h3>
+                    <div className='text-center my-3'>
+                        <Link className='primary-custom-button' to='/additem'>Add new item</Link>
+                    </div>
                 </div>
                 <div>
                     <Table responsive="lg" striped bordered hover>
