@@ -40,8 +40,6 @@ const Register = () => {
     if (error1 || error2) {
         errorMessage = error1 ? error1.message : error2.message;
     }
-    console.log(error1)
-    console.log(error2)
 
     if (user) {
         infoMessage = 'A Verify link is sent your email address. please verify it.'

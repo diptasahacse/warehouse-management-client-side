@@ -43,10 +43,6 @@ const SocialLogin = () => {
 
                     </div>
                 </button>
-                <div style={{ height: "40px", width: "40px", border: "1px solid #86BA09" }} className=' rounded-circle p-1 m-1'>
-                    <img className='img-fluid' src='https://i.ibb.co/KW4rvpJ/facebook.png' alt="Google" />
-
-                </div>
             </div>
             <div className='text-center'>
                 <p className='text-danger'>{errorMessage ? errorMessage : ''}</p>
