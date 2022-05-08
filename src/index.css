@@ -21,7 +21,7 @@ code {
 
 
 /* Inventory Product Card */
-.inventory-product-card,.primary-custom-button {
+.inventory-product-card,.primary-custom-button,.danger-custom-button {
   transition: all .3s ease-in-out;
 }
 
