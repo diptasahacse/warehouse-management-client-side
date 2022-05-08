@@ -14,7 +14,7 @@ code {
 
 
 /* Inventory Product Card */
-.inventory-product-card {
+.inventory-product-card,.primary-custom-button {
   transition: all .3s ease-in-out;
 }
 
@@ -39,13 +39,34 @@ code {
   transition: all .3s ease-in-out;
   border-radius: 40px;
 
-  
+
 
 }
 
 .product-details-image:hover {
   transform: scale(1.2);
   cursor: pointer;
-  
+
+
+}
+
+/* Primary Button */
+.primary-custom-button {
+  border: 1px solid #86BA09;
+  background: transparent;
+  color: #86BA09;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 21px;
+  padding: 5px 20px;
+  display: inline-block;
+  text-decoration: none;
+
+}
+
+.primary-custom-button:hover {
+  background: #86BA09;
+  color: white;
+
 
 }

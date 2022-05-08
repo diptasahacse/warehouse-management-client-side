@@ -7,9 +7,9 @@ const InventoryItemCard = ({ product }) => {
     const navigate = useNavigate();
 
 
-    const stockUpdateHandleListener = (id) =>{
+    const stockUpdateHandleListener = (id) => {
         navigate(`inventory/${id}`)
-        
+
 
     }
     return (
@@ -36,7 +36,7 @@ const InventoryItemCard = ({ product }) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className='bg-transparent border-0 text-end'>
-                    <button onClick={()=>stockUpdateHandleListener(_id)} className='btn btn-success btn-sm'>Manage</button>
+                    <button onClick={() => stockUpdateHandleListener(_id)} className='primary-custom-button'>Manage</button>
                 </Card.Footer>
             </Card>
         </Col>

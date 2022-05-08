@@ -7,14 +7,14 @@ import auth from '../../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth); 
+    const [user, loading, error] = useAuthState(auth);
     // user?.emailVerified
-    
+
     return (
-        <Navbar bg="light" expand="lg" className='bg-white border-bottom border-primary'>
+        <Navbar bg="light" expand="lg" className='bg-white'>
             <Container>
                 <Link className='navbar-brand' to='/'>
-                    <h4>Fruit Store House</h4>
+                    <h4 style={{ color: "#86BA09" }}>Fruit Store House</h4>
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -22,13 +22,13 @@ const Header = () => {
                         <CustomLink className='nav-link' to='/'>Home</CustomLink>
                         {
                             user?.emailVerified && <><CustomLink className='nav-link' to='/manageinventory'>Manage Inventory</CustomLink>
-                            <CustomLink className='nav-link' to='/additem'>Add Item</CustomLink>
-                            <CustomLink className='nav-link' to='/myitems'>My Item</CustomLink></>
+                                <CustomLink className='nav-link' to='/additem'>Add Item</CustomLink>
+                                <CustomLink className='nav-link' to='/myitems'>My Item</CustomLink></>
                         }
                         <CustomLink className='nav-link' to='/blogs'>Blogs</CustomLink>
-                        
+
                         {user?.emailVerified || <><CustomLink className='nav-link' to='/register'>Register</CustomLink>
-                        <CustomLink className='nav-link' to='/login'>Login</CustomLink></> 
+                            <CustomLink className='nav-link' to='/login'>Login</CustomLink></>
                         }
 
 
@@ -36,10 +36,10 @@ const Header = () => {
                             <Link to='/userprofile' className='dropdown-item'>Profile</Link>
                             <NavDropdown.Divider />
                             <div className='dropdown-item'>
-                                <button onClick={()=>signOut(auth)} className='btn btn-sm btn-danger'>Logout</button>
+                                <button onClick={() => signOut(auth)} className='btn btn-sm btn-danger'>Logout</button>
                             </div>
                         </NavDropdown>}
-                        
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
