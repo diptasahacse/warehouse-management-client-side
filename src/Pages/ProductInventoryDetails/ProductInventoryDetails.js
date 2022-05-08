@@ -187,9 +187,9 @@ const ProductInventoryDetails = () => {
                             <div className='mb-4'>
                                 <div className='d-flex align-items-center  h-100'>
                                     <div className='d-flex align-items-center'>
-                                        <button onClick={onDeliverHandler} disabled={product?.productQuantity == 0 ? true : false} className='btn btn-danger btn-sm'>
+                                        <button onClick={onDeliverHandler} disabled={product?.productQuantity == 0 ? true : false} className='danger-custom-button'>
                                             <span>Delivered</span>
-                                            <MinusSmIcon style={{ height: "25px", width: "25px" }} className="text-blue-500" />
+                                            <MinusSmIcon style={{ height: "25px", width: "25px" }} className="ms-2" />
                                         </button>
 
 
@@ -212,9 +212,10 @@ const ProductInventoryDetails = () => {
                                                     <Form.Control required ref={reduceQuantityRef} type="number" placeholder="Enter Quantity" />
 
                                                 </Form.Group>
-                                                <Button disabled={product?.productQuantity == 0 ? true : false} className='ms-2' variant="danger" size='sm' type="submit">
-                                                    Reduce
-                                                </Button>
+                                                <input disabled={product?.productQuantity == 0 ? true : false} className='ms-2 danger-custom-button' type="submit" value="Reduce" />
+                                                
+                                                    
+                                                
                                             </Form>
                                         </div>
 
@@ -231,9 +232,8 @@ const ProductInventoryDetails = () => {
                                                     <Form.Control required ref={quantityRef} type="number" placeholder="Enter Quantity" />
 
                                                 </Form.Group>
-                                                <Button className='ms-2' variant="primary" size='sm' type="submit">
-                                                    Restock
-                                                </Button>
+                                                <input className='ms-2 primary-custom-button' type="submit" value="Restock" />
+                                                
                                             </Form>
                                         </div>
 
