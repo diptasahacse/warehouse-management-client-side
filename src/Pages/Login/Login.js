@@ -4,6 +4,7 @@ import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-f
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const [
@@ -80,6 +81,10 @@ const Login = () => {
                         </Form>
                     </div>
                 </div>
+            </Container>
+            <Container style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }} className='my-4 p-4'>
+                <SocialLogin></SocialLogin>
+
             </Container>
         </div>
     );

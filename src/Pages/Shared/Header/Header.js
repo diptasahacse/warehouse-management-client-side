@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
+import { LogoutIcon } from '@heroicons/react/solid'
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -34,11 +35,16 @@ const Header = () => {
 
                         {user?.emailVerified && <NavDropdown title={user.displayName} id="basic-nav-dropdown">
                             <Link to='/userprofile' className='dropdown-item'>Profile</Link>
-                            <NavDropdown.Divider />
-                            <div className='dropdown-item'>
-                                <button onClick={() => signOut(auth)} className='btn btn-sm btn-danger'>Logout</button>
-                            </div>
+
                         </NavDropdown>}
+
+                        {user?.emailVerified && <>
+                            <div className='nav-link'>
+                                <LogoutIcon role='button' onClick={() => signOut(auth)} style={{ height: "25px", width: "25px" }} className="text-danger" />
+                            </div>
+
+                        </>
+                        }
 
                     </Nav>
                 </Navbar.Collapse>

@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import 'react-toastify/dist/ReactToastify.css';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 
 const Register = () => {
@@ -81,10 +82,14 @@ const Register = () => {
                                 }
                             </div>
                             <input className='primary-custom-button' type="submit" value="Register" />
-                            
+
                         </Form>
                     </div>
                 </div>
+            </Container>
+            <Container style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }} className='my-4 p-4'>
+                <SocialLogin></SocialLogin>
+
             </Container>
         </div>
     );

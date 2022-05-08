@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+/* Form Focus  */
+.form-control:focus{
+  border-color: #86BA09 !important;
+  box-shadow: 0 0 0 0.15rem #86ba0966 !important;
+}
+
+
 
 /* Inventory Product Card */
 .inventory-product-card,.primary-custom-button {
