@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Button, Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -53,15 +53,10 @@ const Login = () => {
     }
     console.log(errorMessage)
     return (
-        <Row xs={1} md={2} className='m-0'>
-            <Col>
+        <div className="overflow-hidden" style={{ backgroundColor: "#F7F8FD" }}>
+            <Container style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }} className='my-4 p-4'>
                 <div>
-                    <h3>Looks you are new here Signin</h3>
-                </div>
-            </Col>
-            <Col>
-                <div>
-                    <h3>Login</h3>
+                    <h3 className='mb-3'>Login</h3>
                     <div>
                         <Form onSubmit={loginOnSubmitHandler}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -80,14 +75,13 @@ const Login = () => {
                             {
                                 errorMessage ? <p className='text-danger'>{errorMessage}</p> : ''
                             }
-                            <Button variant="primary" type="submit">
-                                Signin
-                            </Button>
+                            <input type="submit" className='primary-custom-button' value="Signin" />
+
                         </Form>
                     </div>
                 </div>
-            </Col>
-        </Row>
+            </Container>
+        </div>
     );
 };
 

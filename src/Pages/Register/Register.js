@@ -1,6 +1,6 @@
 import { async } from '@firebase/util';
 import React, { useRef } from 'react';
-import { Button, Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
@@ -46,15 +46,10 @@ const Register = () => {
     }
     console.log(user)
     return (
-        <Row xs={1} md={2} className='m-0'>
-            <Col>
+        <div className="overflow-hidden" style={{ backgroundColor: "#F7F8FD" }}>
+            <Container style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }} className='my-4 p-4'>
                 <div>
-                    <h3>Looks you are new here</h3>
-                </div>
-            </Col>
-            <Col>
-                <div>
-                    <h3>SignUp</h3>
+                    <h3 className='mb-3'>SignUp</h3>
                     <div>
                         <Form onSubmit={signUpOnSubmitHandler}>
                             <Form.Group className="mb-3" controlId="formBasicName">
@@ -85,14 +80,13 @@ const Register = () => {
                                     errorMessage ? <p className='text-danger'>{errorMessage}</p> : ''
                                 }
                             </div>
-                            <Button variant="primary" type="submit">
-                                Register
-                            </Button>
+                            <input className='primary-custom-button' type="submit" value="Register" />
+                            
                         </Form>
                     </div>
                 </div>
-            </Col>
-        </Row>
+            </Container>
+        </div>
     );
 };
 
