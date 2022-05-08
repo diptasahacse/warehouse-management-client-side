@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Fruit Store House
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site Link [Fruit Store House](https://snazzy-mooncake-ea1534.netlify.app/).
 
-## Available Scripts
+## All Features
+> This website is about manage product for authenticate user. In home page, user can visit login and register on this website to access inventory items. in this page user can see banner, inventory item section in inventory items section, counter section and footer. in inventory section user can see 6 product with manage button. when user click on the button then user will visit product details route (if user logged in other wise user will go login page). in product details section user can modify any product. in the bottom on the inventory section user will see manage inventory button. when user click on that button user will go to manage inventory route. that route will show all products details with manage and delete button. if user click on the manage button user will visit product details page and if user click delete button then that product will delete from database. on navbar user see a route link name my items. user can only see his uploaded product. user also modify and delete his product on that page.
 
-In the project directory, you can run:
+* Home Page : In the Home page, You will see Header, Banner, Inventory Item section, Counter section and Footer. Header part contain site name and nav link, Banner part contain Image slider, Inventory Section contain 6 Product with modify button, Counter section contain product details and footer part contain some Copyright text.
+* Manage Inventory Page: In this page authenticate user can see all products and he can modify or delete any products.
+* Add new Page: In this page authenticate user can upload product.
+* Login Page : In this page user can login.
+* Register Page : In this page user can register.
+* My Items Page : In this page authenticate user can see only his all products and he can modify or delete any products.
+* Add new Page: In this page authenticate user can upload product.
+* Blog Page: In this page user can see 4 blogs. he can read each blogs on dynamic route.
 
-### `npm start`
+## All Tools and Technology I Have used in this project
+* React 18
+* React Router
+* React Firebase Hooks
+* Bootstrap
+* Firebase
+* React Toastify
+* JWT
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
