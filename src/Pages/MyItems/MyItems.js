@@ -34,7 +34,7 @@ const MyItems = () => {
     return (
         <div  style={{ 'backgroundColor': "#F7F8FD" }} className="overflow-hidden">
             <Container className='my-4 p-5' style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }}>
-                <h3>My Products</h3>
+                <h3 className='mb-3'>My Products</h3>
                 {
                     myProducts.length > 0 ?
                         <div>

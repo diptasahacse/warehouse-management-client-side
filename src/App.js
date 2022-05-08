@@ -16,6 +16,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import RequiredAuth from './Pages/Shared/RequiredAuth/RequiredAuth';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import ProductInventoryDetails from './Pages/ProductInventoryDetails/ProductInventoryDetails';
+import BlogDetails from './Pages/Blogs/BlogDetails/BlogDetails';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         }></Route>
 
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/blogs/:id' element={<BlogDetails></BlogDetails>}></Route>
 
         <Route path='/manageinventory' element={
           <RequiredAuth>
