@@ -63,7 +63,25 @@ code {
   text-decoration: none;
 
 }
+.danger-custom-button {
+  border: 1px solid #BB2D3B;
+  background: transparent;
+  color: #BB2D3B;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 21px;
+  padding: 5px 20px;
+  display: inline-block;
+  text-decoration: none;
 
+}
+
+.danger-custom-button:hover {
+  background: #BB2D3B;
+  color: white;
+
+
+}
 .primary-custom-button:hover {
   background: #86BA09;
   color: white;

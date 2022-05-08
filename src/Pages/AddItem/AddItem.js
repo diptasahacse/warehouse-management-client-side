@@ -42,7 +42,7 @@ const AddItem = () => {
         })
             .then(res => res.json())
             .then(result => {
-                if(result?.acknowledged){
+                if (result?.acknowledged) {
                     event.target.reset()
 
                 }
@@ -139,9 +139,8 @@ const AddItem = () => {
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check onChange={addItemCheckHandler} type="checkbox" label="All info are correct" />
                             </Form.Group>
-                            <Button disabled={!isChecked} variant="primary" type="submit">
-                                Add Product
-                            </Button>
+
+                            <button disabled={!isChecked} className='primary-custom-button'>Add Product</button>
                         </Form>
                     </div>
 
