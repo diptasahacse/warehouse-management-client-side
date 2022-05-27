@@ -62,15 +62,13 @@ const AddItem = () => {
     }
 
     return (
-        <Container className='py-3'>
 
-            <Row className='m-0' md={2} xs={1}>
-                <Col>
-                    <div>
-                        <h2>Add Item</h2>
-                    </div>
-                </Col>
-                <Col>
+        <div style={{ 'backgroundColor': "#F7F8FD" }} className="overflow-hidden">
+            <Container className='my-4 p-5' style={{ 'backgroundColor': "#FFF", "borderRadius": "15px" }}>
+                <div>
+                    <h2>Add Item</h2>
+                </div>
+                <div>
                     <div>
                         <Form onSubmit={addProductHandleListener}>
 
@@ -143,11 +141,11 @@ const AddItem = () => {
                             <button disabled={!isChecked} className='primary-custom-button'>Add Product</button>
                         </Form>
                     </div>
+                </div>
 
-                </Col>
-
-            </Row>
-        </Container>
+                
+            </Container>
+        </div>
     );
 };
 
